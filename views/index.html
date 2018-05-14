@@ -1,0 +1,9 @@
+<h2>Koala - a directory Koala of attributes <a class="btn btn-sm btn-primary" href="http://localhost:1234/edit">Edit</a></h2>
+
+<ul class="list-group">
+    <% attributes.forEach( function(attribute) { %>
+        <li class="list-group-item">
+            <%= attribute.meta_name %> - <%= attribute.meta_value %>
+        </li>
+    <% }); %>
+</ul>

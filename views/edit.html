@@ -1,0 +1,53 @@
+<h2>
+    Edit the attributes of the koala 
+    <button class="btn btn-warning" data-toggle="modal" data-target="#newAttribute">
+        Add New Attribute
+    </button>
+</h2>
+
+<div class="row">
+    <div class="col-md-6">
+        <form method="POST" action="http://localhost:1234/edit">
+            <div class="form-group">
+                <% attributes.forEach( (attribute) => { %>
+                    <label><%= attribute.meta_name %></label>
+                    <input class="form-control" name="<%= attribute.meta_name %>" 
+                        value="<%= attribute.meta_value %>" />
+                <% }) %>
+            </div>
+
+            <button class="btn btn-sm btn-primary">Save Changes</button>
+        </form>
+    </div>
+</div>
+
+<div class="modal fade" id="newAttribute" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Add new Koala attribute</h4>
+            </div>
+            <form method="POST" action="http://localhost:1234/">
+                <div class="modal-body">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Attribute name</label>
+                                    <input class="form-control" name="meta_name" placeholder="e.g. Average Height">
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Attribute value</label>
+                                    <input class="form-control" name="meta_value" placeholder="130 cm">
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-danger" type="button" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
